@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Port Monitor</title>
+    <script>
+        function updateStatus() {
+            fetch('/port')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('status').textContent = data;
+                });
+        }
+
+        setInterval(updateStatus, 5000); // Update every 5 seconds
+    </script>
+</head>
+<body>
+    <div id="status"></div>
+</body>
+</html>
